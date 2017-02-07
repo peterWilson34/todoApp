@@ -1,0 +1,22 @@
+<div header></div>
+
+<div class="container ">
+    <form class="centerContent mx-auto loginForm" name="loginForm" novalidate ng-submit="submitted=true;login(loginForm.$valid)">
+      <div class="form-group" ng-class="{'has-danger':submitted && loginForm.username.$error.required,'has-success':submitted && !loginForm.username.$error.required}">
+        <div>
+          <input type="text" class="form-control" name="username" ng-model="user.username" required placeholder="Username">
+        </div>
+      </div>
+      <div class="form-group" ng-class="{'has-danger':submitted && loginForm.password.$error.required,'has-success':submitted && !loginForm.username.$error.required}">
+        <div>
+          <input type="password" class="form-control" name="password" ng-model="user.pass" required placeholder="Password">
+        </div>
+      </div>
+
+
+      <button  class="btn btn-primary btn-lg btn-block p-05">Login</button>
+    </form>
+
+  </div>
+
+</div>

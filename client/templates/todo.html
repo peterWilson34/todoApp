@@ -1,0 +1,13 @@
+<div class="card mb-2 animated bounceInUp" ng-dblclick="edit($event)" >
+  <div class="card-block " >
+    <i class="fa fa-trash-o" ng-click="deleteTodo(todo._id,$index)"></i>
+    <h4 class="card-title" ng-if="!editMode">{{todo.title}}</h4>
+    <input type="text" ng-model="todo.title" ng-if="editMode">
+    <p class="card-text" ng-bind-html="todo.trusedDescription" ng-if="!editMode"></p>
+    <input type="text" ng-model="todo.description" ng-if="editMode">
+    <button type="button" class="btn btn-primary" ng-click="update(todo)" ng-if="editMode" >update</button>
+    <button type="button" class="btn btn-default" ng-click="cancel()" ng-if="editMode" >Cancel</button>
+    <span class="details" ng-if="!editMode && !single" ng-click="goToSingle(todo,$event)">details</span>
+    <p  ng-if="single" >Added by: {{todo.author.username}}</p>
+  </div>
+</div>

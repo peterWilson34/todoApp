@@ -1,0 +1,72 @@
+body {
+  background-color: #fff; }
+
+html, body, div[ng-view], div[ng-view] > .container, div[ng-view] > .container > .row {
+  height: 100%; }
+
+.centerContainer {
+  height: 100%;
+  text-align: center; }
+  .centerContainer .centerContent {
+    display: inline-block;
+    vertical-align: middle; }
+
+.centerContainer:after {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  content: ''; }
+
+.loginForm {
+  width: 50%; }
+
+.completed .card {
+  background-color: #5cb85c;
+  color: #326632; }
+
+.notCompleted .card {
+  background-color: #f0ad4e;
+  color: #8f672f; }
+
+.card h4 {
+  color: #fff; }
+
+.card input {
+  display: block;
+  background: transparent;
+  width: 100%;
+  margin-bottom: 2px;
+  border: 1px solid #fff;
+  padding: 6px; }
+
+.card p > p {
+  margin: 0; }
+
+.card i.fa.fa-trash-o {
+  position: absolute;
+  right: 10px; }
+
+.homePage .col-sm-6 {
+  height: 100%; }
+
+nav .container {
+  justify-content: space-between !important; }
+
+.show {
+  opacity: 1; }
+
+#errorModel h5 {
+  text-align: center;
+  display: block;
+  width: 100%; }
+
+#errorModel h5, #errorModel p {
+  color: #fff; }
+
+#errorModel p {
+  margin-bottom: 0; }
+
+.details {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer; }

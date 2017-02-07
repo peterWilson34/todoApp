@@ -1,0 +1,20 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="container">
+
+    <a class="navbar-brand" href="#">Crossover Todo</a>
+
+    <div >
+
+      <form class="form-inline pull-right" ng-if="author">
+        <input class="form-control mr-1" ng-model="$root.search.title" type="text" placeholder="Search by title">
+        <button class="btn btn-outline-success " type="button" ng-click="logout()">logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron ">
+  <div class="container">
+    <h1 class="display-3">Cross over todo app</h1>
+    <p class="lead">This is an app to create, edit and organize your upcoming tasks!.</p>
+  </div>
+</div>

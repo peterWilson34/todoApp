@@ -1,0 +1,97 @@
+<div header></div>
+<div class="container homePage">
+  <div class="row">
+    <div class="col-sm-6 drop notCompleted" id="notCompleted">
+      <div class="alert alert-warning">
+        <strong>Hurry up!</strong> You have to complete  all these todo items.
+      </div>
+      <todo-item draggable="true"  ng-repeat="todo in todos | filter:{status:'notCompleted'}:true| filter:{'title':search.title}" class="draggable d-block " id="{{todo._id}}"></todo-item>
+      <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addTodoModel"  name="button"><i class="fa fa-plus mr-1"></i>Add Item</button>
+
+    </div>
+    <div class="col-sm-6 drop completed" id="completed" >
+      <div class="alert alert-success" >
+        <strong>Well done!</strong> You successfully completed all these todo items.
+      </div>
+      <todo-item   draggable="true" ng-repeat="todo in todos | filter:{status:'completed'}:true| filter:{'title':search.title}" class="draggable d-block" id="{{todo._id}}"> </todo-item>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade p-3" id="addTodoModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new todo item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="centerContent " name="addTodoForm" novalidate ng-submit="submitted=true;addTodo(addTodoForm.$valid)">
+
+      <div class="modal-body">
+          <div class="form-group" ng-class="{'has-danger':submitted && addTodoForm.title.$error.required,'has-success':submitted && !loginForm.username.$error.required}">
+            <div>
+              <input type="text" class="form-control" name="title" ng-model="todo.title" required placeholder="Title">
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-danger':submitted && addTodoForm.desc.$error.required,'has-success':submitted && !loginForm.username.$error.required}">
+            <div>
+              <input type="text" class="form-control" name="desc" ng-model="todo.description" required placeholder="Description">
+            </div>
+          </div>
+
+          <div class="form-group mb-0">
+              <legend>Status</legend>
+              <div class="form-check">
+                <label class="form-check-label mr-1">
+                  <input type="radio" class="form-check-input" name="optionsRadios" id="completed" ng-model="todo.status" value="completed" >
+                  Completed
+                </label>
+                <label class="form-check-label" ng-init="todo.status='notCompleted'">
+                  <input type="radio" class="form-check-input" name="optionsRadios" id="notCompleted" ng-model="todo.status" value="notCompleted" checked>
+                  Not Completed
+                </label>
+              </div>
+
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  class="btn btn-primary">Add item</button>
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade p-3 " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Caution!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Are you sure you want to delete this item?</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button  class="btn btn-primary" ng-click="excuteDelete()">Yes</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>
